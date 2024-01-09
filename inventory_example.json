@@ -1,0 +1,22 @@
+[
+    {
+        "model": "inventory_management.inventoryitemlog",
+        "pk": 98,
+        "fields": {
+            "item": 1,  // ID of an existing InventoryItem
+            "quantity": 15,
+            "change_date": "2023-01-01T12:00:00Z",
+            "user": 1  // ID of an existing User
+        }
+    },
+    {
+        "model": "inventory_management.inventoryitemlog",
+        "pk": 99,
+        "fields": {
+            "item": 2,  // ID of another existing InventoryItem
+            "quantity": 20,
+            "change_date": "2023-01-02T15:30:00Z",
+            "user": 1
+        }
+    }
+]

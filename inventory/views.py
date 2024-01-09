@@ -7,6 +7,7 @@ from .models import InventoryItem, Category, InventoryItemLog
 from django.contrib.auth.mixins import LoginRequiredMixin
 from inventory_management.settings import LOW_QUANTITY, HIGH_QUANTITY
 from django.contrib import messages
+import plotly.express as px
 
 # Create your views here.
 class Index(TemplateView):
@@ -30,7 +31,6 @@ class SignUp(View):
             return redirect('index')
         return render(request, 'inventory/signup.html', {'form':form})
     
-
 class Dashboard(LoginRequiredMixin, View):
     def get(self, request):
         low_inventory = InventoryItem.objects.filter(
@@ -80,3 +80,40 @@ class DeleteItem(LoginRequiredMixin, DeleteView):
     template_name = 'inventory/delete_item.html'
     success_url = reverse_lazy('dashboard')
     context_object_name='item'
+
+def chart(request, item_id):
+    item_logs = InventoryItemLog.objects.filter(item_id=item_id).order_by('change_date')
+    dates = [item_log.change_date for item_log in item_logs]
+    quantities = [item_log.quantity for item_log in item_logs]
+
+    categories = ['Low' if qty < LOW_QUANTITY else 'High' if qty > HIGH_QUANTITY  else 'Medium' for qty in quantities]
+    colors_map = {'Low':'red', 'Medium':'blue', 'High':'green'}
+
+    title = f"Quantity Changes for {InventoryItem.objects.get(id=item_id).name}"
+    labels = {'x':'Time Stamp', 'y':'Quantity'}
+
+    fig = px.scatter(
+        x = dates,
+        y = quantities,
+        title = title,
+        labels = labels,
+        color = categories,
+        color_discrete_map = colors_map # Maps categories to colors
+    )
+
+    fig.update_layout(xaxis=dict(tickformat="%m/%d/%Y"))
+
+    y_min = 0
+    y_max = 600
+    fig.update_layout(yaxis_range=[y_min, y_max])
+
+    fig.update_traces(marker=dict(size=12,
+                                line=dict(width=2,
+                                            color='DarkSlateGrey')),
+                    selector=dict(mode='markers'))
+
+    chart = fig.to_html()
+    context = {'chart':chart}
+
+    return render(request, 'inventory/chart_item.html', context)
+

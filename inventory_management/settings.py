@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # Third Party Apps
     'crispy_forms',
     "crispy_bootstrap5",
+    'plotly',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -143,5 +144,5 @@ LOGIN_REDIRECT_URL = '/dashboard'
 LOGIN_URL = '/login'
 
 # Global Values for Low and High Quantities
-LOW_QUANTITY = 3
-HIGH_QUANTITY = 200
+LOW_QUANTITY = 100
+HIGH_QUANTITY = 300

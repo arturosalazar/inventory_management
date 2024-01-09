@@ -53,6 +53,7 @@
                                         <td>{{item.category}}</td>
                                         <td><a href="{%url 'edit_item' item.id%}" class="btn btn-secondary">Edit</a></td>
                                         <td><a href="{%url 'delete_item' item.id%}" class="btn btn-danger">Delete</td>
+                                        <td><a href="{%url 'chart_item' item.id%}" class="btn btn-info">Chart</td>
                                     </tr>
                                 {% endfor %}
                             {% else %}
