@@ -25,3 +25,8 @@ class SignUp(View):
             return redirect('index')
         return render(request, 'inventory/signup.html', {'form':form})
     
+
+class Dashboard(View):
+    def get(self, request):
+        return render(request, 'inventory/dashboard.html')
+    
