@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-<title>Sign Up</title>
+    <title>Sign Up</title>
 {% endblock title %}
 
 {% block content%}
@@ -29,6 +29,9 @@
                 {{form | crispy}}
                 <button class="btn btn-primary" type="submit">Sign Up</button>
             </form>
+            <div class="pt-3">
+                <small class="text-muted">Already have an account?<a class="ml-2" href="{% url 'login' %}">Log In here</a></small>
+            </div>
         </div>
     </div>
 </div>

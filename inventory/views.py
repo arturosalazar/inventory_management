@@ -12,7 +12,7 @@ class SignUp(View):
         form = UserRegistrationForm()
         return render(request, 'inventory/signup.html', {'form':form})
 
-    def put(self, request):
+    def post(self, request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
@@ -24,3 +24,4 @@ class SignUp(View):
             login(request, user)
             return redirect('index')
         return render(request, 'inventory/signup.html', {'form':form})
+    

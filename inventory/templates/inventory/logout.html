@@ -1,0 +1,20 @@
+{% extends 'inventory/base.html'%}
+
+{% block title %}
+    <title>Log Out</title>
+{% endblock title %}
+
+{% block content%}
+    <div class="container">
+        <div class="row">
+            <div class="col-11 col-md-4 mx-auto mt-5">
+                <h2>You Have Been Logged Out</h2>
+                <div class="border-top pt-3">
+                    <small class="text-muted">
+                        <a href="{% url 'login' %}">Log in again</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content%}
