@@ -12,3 +12,4 @@ inventory/__pycache__/models.cpython-312.pyc
 inventory/__pycache__/urls.cpython-312.pyc
 inventory/__pycache__/views.cpython-312.pyc
 inventory/migrations/__pycache__/__init__.cpython-312.pyc
+inventory/__pycache__/forms.cpython-312.pyc
