@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, View
-from .forms import UserRegistrationForm
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, View, CreateView
+from .forms import UserRegistrationForm, InventoryItemForm
 from django.contrib.auth import authenticate, login
 from .models import InventoryItem, Category, InventoryItemLog
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -34,3 +35,17 @@ class Dashboard(LoginRequiredMixin, View):
         context = {'items':items}
         return render(request, 'inventory/dashboard.html', context)
     
+class AddItem(LoginRequiredMixin, CreateView):
+    model = InventoryItem
+    form_class = InventoryItemForm
+    template_name = 'inventory/inventory_form.html'
+    success_url = reverse_lazy('dashboard')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        return context
+    
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
