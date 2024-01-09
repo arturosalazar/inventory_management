@@ -23,25 +23,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
                             {% if items %}
                                 {% for item in items %}
-                                    <th scope="row">{{item.id}}</th>
-                                    <td>{{item.name}}</td>
-                                    <td>{{item.quantity}}</td>
-                                    <td>{{item.category}}</td>
-                                    <td>-</td>
-                                    <td>-</td>
+                                    <tr>
+                                        <th scope="row">{{item.id}}</th>
+                                        <td>{{item.name}}</td>
+                                        <td>{{item.quantity}}</td>
+                                        <td>{{item.category}}</td>
+                                        <td><a href="{%url 'edit_item' item.id%}" class="btn btn-secondary">Edit</a></td>
+                                        <td><a href="{%url 'delete_item' item.id%}" class="btn btn-danger">Delete</td>
+                                    </tr>
                                 {% endfor %}
                             {% else %}
-                            <th scope="row">-</th>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
+                            <tr>
+                                <th scope="row">-</th>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
                             {% endif %}
-                        </tr>
                     </tbody>
                 </table>
             </div>
