@@ -1,15 +1,71 @@
 {% extends 'inventory/base.html'%}
 
 {% block title %}
-<title>Inventory Management</title>
+    <title>Inventory Management</title>
 {% endblock title %}
 
 {% block content%}
 <div class="container">
+    {% load static %}
+    <div class="d-flex justify-content-center">
+        <img class="img-thumbnail rounded-circle w-25" src="{% static 'images/tinker_lab_inventory_management_logo.png' %}" alt="Tinker Lab Inventory Management Logo">
+    </div>
+    
+
     <div class="row">
         <div class="col-12 mx-auto mt-3">
-            <h1>Index</h1>
+            <h1 class="text-center mb-4">Welcome to Your Tinker Lab Inventory Manager</h1>
+            <p class="lead">Your innovative space deserves a seamless inventory management 
+                experience, and we're here to deliver just that. Our Tinker Lab 
+                Inventory Manager is designed to streamline the way you track 
+                and manage your lab's resources.</p>
+                <hr>
+            <h2 class="mt-4">Effortless Access, Comprehensive Management</h2>
+            <p class="mb-3">To start, simply log in with your institutional credentials. 
+                This ensures secure and personalized access for
+                your academic community. 
+                Once logged in, you'll enter a world of efficient inventory 
+                oversight.</p>
+            <h2 class="mt-4">Tailored for Your Tinker Lab's Unique Needs</h2>
+            <p>Whether you're tracking electronics, tools, or materials, 
+                our intuitive interface makes it easy. You'll spend less time 
+                managing inventory and more time fueling 
+                creativity in your tinker lab.</p>
         </div>
     </div>
 </div>
+
+<div class="d-flex justify-content-center">
+    <a href="#" class="btn btn-primary btn-lg" style="font-size:25px; padding:15px 25px">Get Started Today</a>
+</div>
+
+<div class="container challenge pb-3">
+    <h2 style="text-align:center" class="pt-3 pb-3">Benefits</h2>
+    <div class="row" style="background-color:white">
+      <div class="col-sm-6 col-lg-3" style="border:5px solid #f8f5f0 ;background-color:white;padding:10px;">
+        <h6><b>Effortless Tracking</b></h6>
+        <p>Experience unparalleled efficiency in tracking your lab's resources with our real-time inventory monitoring system. Gone are the days of manual inventory counts and guesswork. Our platform provides up-to-the-minute updates on all your lab equipment and materials, ensuring you always know what's in stock at a glance.</p>
+        <p>Streamline your inventory management process with our automated tracking tools. Whether it's checking the availability of specific items or getting a comprehensive view of your stock levels, our system simplifies these tasks, saving you time and reducing errors.</p>
+      </div>
+      <div class="col-sm-6 col-lg-3" style="border:5px solid #f8f5f0;background-color:white;padding:10px;">
+        <h6><b>Historical Insights</b></h6>
+        <p>Unlock the power of data with our comprehensive historical inventory logs. This feature allows you to track usage patterns over time, helping you to understand how resources are utilized in your lab. With these insights, you can make data-driven decisions about restocking, budgeting, and resource allocation.</p>
+        <p>Our system not only tracks current inventory levels but also maintains a detailed record of past inventory changes. This historical perspective is invaluable for forecasting future needs, preventing shortages, and ensuring that your lab is always prepared for any project.</p>
+      </div>
+      <div class="col-sm-6 col-lg-3" style="border:5px solid #f8f5f0;background-color:white;padding:10px;">
+        <h6><b>Intuitive Interface</b></h6>
+        <p>Our inventory manager boasts an intuitive, user-friendly interface that makes inventory management a breeze. Even for those who are not tech-savvy, navigating through the platform, adding new items, updating existing ones, and analyzing data is straightforward and hassle-free.</p>
+        <p>Beyond ease of use, we prioritize the security of your data. With secure logins using institutional credentials, you can be assured that sensitive inventory information is accessible only to authorized personnel. This dual focus on usability and security offers a seamless and safe inventory management experience.</p>
+      </div>
+      <div class="col-sm-6 col-lg-3" style="border:5px solid #f8f5f0;background-color:white;padding:10px;">
+        <h6><b>Time-Saving Convenience</b></h6>
+        <p>Stay proactive with our customizable alert system. Set alerts for low-stock items and get timely notifications to reorder supplies. This feature ensures that your lab never faces the inconvenience of running out of essential materials, keeping your operations smooth and uninterrupted.</p>
+        <p>Moreover, our platform is designed to maximize your lab's operational efficiency. By automating routine inventory tasks, you can redirect your focus and time towards fostering innovation and creativity in your tinker lab. Embrace the convenience of our system and transform the way you manage your lab's resources.</p>
+      </div>
+    </div>
+  </div>
+  
+  <p style="text-align: center; padding-top:30px;">
+    <a href="{%url 'index'%}" style="color:#777777">Return to Top</a>
+  </p>
 {% endblock content%}
