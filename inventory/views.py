@@ -3,6 +3,7 @@ from django.views.generic import TemplateView, View
 from .forms import UserRegistrationForm
 from django.contrib.auth import authenticate, login
 from .models import InventoryItem, Category, InventoryItemLog
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 class Index(TemplateView):
@@ -27,7 +28,7 @@ class SignUp(View):
         return render(request, 'inventory/signup.html', {'form':form})
     
 
-class Dashboard(View):
+class Dashboard(LoginRequiredMixin, View):
     def get(self, request):
         items = InventoryItem.objects.filter(user=self.request.user.id).order_by('id')
         context = {'items':items}
