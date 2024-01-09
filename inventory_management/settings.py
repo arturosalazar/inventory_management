@@ -141,3 +141,7 @@ LOGIN_REDIRECT_URL = '/dashboard'
 
 # Redirect to log in URL if attempting to access restricted page before login
 LOGIN_URL = '/login'
+
+# Global Values for Low and High Quantities
+LOW_QUANTITY = 3
+HIGH_QUANTITY = 200

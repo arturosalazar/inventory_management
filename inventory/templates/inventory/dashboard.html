@@ -5,6 +5,23 @@
 {% endblock title %}
 
 {% block content %}
+    {% if messages %}
+        <div class="row">
+            {% for message in messages%}
+                {% if message.tags == 'error' %}
+                    <div class="col-md-10 col-12 mx-auto alert alert-danger">
+                        {{ message }}
+                    </div>
+                {% else %}
+                    <div class="col-md-10 col-12 mx-auto alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+        
+                
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-10 mx-auto mt-5">
@@ -28,7 +45,11 @@
                                     <tr>
                                         <th scope="row">{{item.id}}</th>
                                         <td>{{item.name}}</td>
-                                        <td>{{item.quantity}}</td>
+                                        {% if item.id in low_inventory_ids %}
+                                            <td class="text-danger">{{item.quantity}}</td>
+                                        {% else %}
+                                            <td class="text-success">{{item.quantity}}</td>
+                                        {% endif %}
                                         <td>{{item.category}}</td>
                                         <td><a href="{%url 'edit_item' item.id%}" class="btn btn-secondary">Edit</a></td>
                                         <td><a href="{%url 'delete_item' item.id%}" class="btn btn-danger">Delete</td>

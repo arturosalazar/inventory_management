@@ -5,6 +5,8 @@ from .forms import UserRegistrationForm, InventoryItemForm
 from django.contrib.auth import authenticate, login
 from .models import InventoryItem, Category, InventoryItemLog
 from django.contrib.auth.mixins import LoginRequiredMixin
+from inventory_management.settings import LOW_QUANTITY, HIGH_QUANTITY
+from django.contrib import messages
 
 # Create your views here.
 class Index(TemplateView):
@@ -31,8 +33,25 @@ class SignUp(View):
 
 class Dashboard(LoginRequiredMixin, View):
     def get(self, request):
+        low_inventory = InventoryItem.objects.filter(
+            user = self.request.user.id,
+            quantity__lte = LOW_QUANTITY
+        )
+        if low_inventory.count() > 0:
+            if low_inventory.count() > 1:
+                messages.error(request,f"{low_inventory.count()} items have low inventory")
+            else:
+                messages.error(request,f"{low_inventory.count()} item has low inventory")
+        else:
+            messages.success(request,f"All inventory items are at normal levels")
+
+        low_inventory_ids = InventoryItem.objects.filter(
+            user = self.request.user.id,
+            quantity__lte = LOW_QUANTITY
+        ).values_list("id", flat=True)
+
         items = InventoryItem.objects.filter(user=self.request.user.id).order_by('id')
-        context = {'items':items}
+        context = {'items':items, 'low_inventory_ids':low_inventory_ids}
         return render(request, 'inventory/dashboard.html', context)
     
 class AddItem(LoginRequiredMixin, CreateView):
