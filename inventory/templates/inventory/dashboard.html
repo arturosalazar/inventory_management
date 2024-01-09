@@ -24,12 +24,23 @@
                     </thead>
                     <tbody>
                         <tr>
+                            {% if items %}
+                                {% for item in items %}
+                                    <th scope="row">{{item.id}}</th>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.quantity}}</td>
+                                    <td>{{item.category}}</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                {% endfor %}
+                            {% else %}
                             <th scope="row">-</th>
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
+                            {% endif %}
                         </tr>
                     </tbody>
                 </table>

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, View
 from .forms import UserRegistrationForm
 from django.contrib.auth import authenticate, login
+from .models import InventoryItem, Category, InventoryItemLog
 
 # Create your views here.
 class Index(TemplateView):
@@ -28,5 +29,7 @@ class SignUp(View):
 
 class Dashboard(View):
     def get(self, request):
-        return render(request, 'inventory/dashboard.html')
+        items = InventoryItem.objects.filter(user=self.request.user.id).order_by('id')
+        context = {'items':items}
+        return render(request, 'inventory/dashboard.html', context)
     

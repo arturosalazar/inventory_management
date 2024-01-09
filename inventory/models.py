@@ -31,8 +31,12 @@ class Category(models.Model):
     """Category for Inventory Items"""
     name=models.CharField(max_length=200)
 
+    class Meta:
+        verbose_name_plural="categories"
+
     def __str__(self):
         return self.name
+    
 
 class InventoryItemLog(models.Model):
     """Used to keep track of changes in InventoryItems. It's information
