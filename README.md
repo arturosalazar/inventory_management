@@ -69,9 +69,3 @@ After starting the server, navigate to `http://localhost:8000` in your web brows
 
 ### Log Out
 ![Log Out](https://github.com/arturosalazar/inventory_management/blob/main/images/screenshot-logout.png)
-
-
-
-## Acknowledgments
-- Mention any third-party libraries or other resources that the project utilizes.
-- Credit any contributors or inspirations for the project.
