@@ -36,6 +36,10 @@ The Inventory Management System is a web application designed to streamline inve
 ## Usage
 After starting the server, navigate to `http://localhost:8000` in your web browser to access the Inventory Management System.
 
+## Screenshots
+### Home Page
+![Home Page](https://github.com/arturosalazar/inventory_management/tree/main/images/screenshot.home-page.png)
+
 ## Acknowledgments
 - Mention any third-party libraries or other resources that the project utilizes.
 - Credit any contributors or inspirations for the project.
