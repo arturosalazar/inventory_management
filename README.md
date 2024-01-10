@@ -38,7 +38,7 @@ After starting the server, navigate to `http://localhost:8000` in your web brows
 
 ## Screenshots
 ### Home Page
-![Home Page](https://github.com/arturosalazar/inventory_management/tree/main/images/screenshot.home-page.png)
+![Home Page](https://github.com/arturosalazar/inventory_management/blob/main/images/screenshot-home-page.png)
 
 ## Acknowledgments
 - Mention any third-party libraries or other resources that the project utilizes.
