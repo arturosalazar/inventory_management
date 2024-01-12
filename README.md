@@ -1,7 +1,7 @@
 # Inventory Management System
 
 ## Overview
-The Inventory Management System is a web application designed to streamline inventory tracking and management in tinker labs. Built with Django, it offers a user-friendly interface for real-time inventory monitoring, historical data analysis, and efficient resource management.
+The Inventory Management System is a web application designed to streamline inventory tracking and management in makerspaces. Built with Django, it offers a user-friendly interface for real-time inventory monitoring, historical data analysis, and efficient resource management.
 
 ## Features
 - **Real-Time Inventory Tracking**: Monitor and update inventory levels in real time.
