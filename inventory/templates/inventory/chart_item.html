@@ -5,5 +5,10 @@
 {% endblock title %}
 
 {% block content %}
+    <div>
+        <div class="pt-3">
+            <small class="text-muted"><a class="btn btn-outline-primary my-3 mx-4" href="{% url 'dashboard' %}">Go Back</a></small>
+        </div>
+    </div>
     {{chart | safe }}
 {% endblock content %}
